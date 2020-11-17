@@ -12,6 +12,9 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "teamcreation.html");
 
 
+// teammates array
+const teammates = [];
+
 //the following three constants verify validity of the user input/entry
 const validNameEntry = (input) => {
     if (/\d/.test(input) || input === '') {
