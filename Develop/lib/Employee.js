@@ -12,7 +12,7 @@ class Employee {
         return this.name;
     }
 
-    getID() {
+    getId() {
         //returns the employee's ID
         return this.id;
     }
