@@ -1,5 +1,5 @@
 // TODO: Write code to define and export the Intern class.  HINT: This class should inherit from Employee.
-const Employee = require('./employee');
+const Employee = require('../lib/employee');
 
 // class intern is built off the employee Class 
 class Intern extends Employee {
