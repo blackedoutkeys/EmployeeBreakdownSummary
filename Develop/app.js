@@ -1,38 +1,72 @@
+//global variables
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+const render = require("./lib/htmlRenderer");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
+//path directories
 const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputPath = path.join(OUTPUT_DIR, "teamcreation.html");
 
-const render = require("./lib/htmlRenderer");
 
-function createTeam(){
-    inquirer.prompt([
-        {
-            type: 'list',
-            message: 'What is your current role at the company?',
-            name: 'userChoice',
-            choices: [
-                'Manager',
-                'Engineer',
-                'Intern',
-                'No other employees to enter'
-            ]
-        }
-    ]).then(userInput => {
-        switch(userInput.userChoice){
-            case 'Manager': addManager(); break;
-            case 'Engineer': addEngineer(); break;
-            case 'Intern': addIntern(); break;
-            case 'No other employees to enter': render(teammates); break
+//the following three constants verify validity of the user input/entry
+const validNameEntry = (input) => {
+    if (/\d/.test(input) || input === '') {
+        return 'Please enter a valid name into the system using only letters!'
+    } else {
+        return true
+    }
+}
+
+const validID = (input) => {
+    if (isNaN(input) || input === '') {
+        return 'Please enter valid ID number';
+    } else {
+        return true;
+    }
+}
+
+const validEmailEntry = (input) => {
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(input) || input === '') {
+        return true;
+    } else {
+        return 'Please enter a valid e-mail address.'
+    }
+};
+
+//begins the creation of the user's team members
+function createTeam() {
+    inquirer.prompt([{
+        type: 'list',
+        message: 'What is your current role at the company?',
+        name: 'userChoice',
+        choices: [
+            'Manager',
+            'Engineer',
+            'Intern',
+            'No other employees to enter'
+        ]
+    }]).then(userInput => {
+        switch (userInput.userChoice) {
+            case 'Manager':
+                addManager();
+                break;
+            case 'Engineer':
+                addEngineer();
+                break;
+            case 'Intern':
+                addIntern();
+                break;
+            case 'No other employees to enter':
+                render(teammates);
+                break
         }
     })
 }
-
+//adds a manager role to the company
 function addManager() {
 
     inquirer.prompt([
@@ -67,6 +101,7 @@ function addManager() {
         createTeam();
     })
 }
+//adds an engineer role to the company
 
 function addEngineer() {
     inquirer.prompt([
@@ -101,6 +136,7 @@ function addEngineer() {
         createTeam();
     })
 }
+//adds a intern role to the company
 
 function addIntern() {
     inquirer.prompt([
