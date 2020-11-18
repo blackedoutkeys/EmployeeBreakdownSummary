@@ -60,7 +60,7 @@ Extensive testing has been done and information populates correctly into all fie
 ```
 npm run test
 ```
-  ![Image of Jest test](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
+  ![Image of Jest test](https://github.com/blackedoutkeys/EmployeeBreakdownSummary/blob/main/Assets/jestTestPass.png)
 
 ```
 lib/           // classes and helper code
@@ -75,10 +75,10 @@ app.js         // Runs the application
 
 ```
 ## Images
-
-  ![Image of App In Console](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
-  ![Image of Pre-con HTML Build](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
-  ![Image of Final Product](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
+  
+  ![Image of Pre-con HTML Build](https://github.com/blackedoutkeys/EmployeeBreakdownSummary/blob/main/Assets/successfulapprun.png)
+  ![Image of App In Console](https://github.com/blackedoutkeys/EmployeeBreakdownSummary/blob/main/Assets/precreationhtml.png)
+  ![Image of Final Product](https://github.com/blackedoutkeys/EmployeeBreakdownSummary/blob/main/Assets/successfulapprun.png)
 
 
 ## Utilizes
