@@ -7,18 +7,26 @@ As a manager
 I want to generate a webpage that displays my team's basic info
 so that I have quick access to emails and GitHub profiles
 ```
+This CLI application will prompt the user for information on management and employees for a team. The program then generates an HTML page displaying the information.
+
+[YouTube Demo](https://youtu.be/COlj8ZTFP2o)
+
 
 ## Table of Contents
 
 * [Features](#Features) <br>
 
-* [Images](#Images) <br>
-
 * [Test](#Test) <br>
 
-* [Contributions](#Contributions) <br>
+* [Images](#Images) <br>
 
 * [Utilizes](#Utilizes) <br>
+
+* [Classes](#Classes) <br>
+
+* [Roster](#Roster) <br>
+
+* [Contributions](#Contributions) <br>
 
 * [License](#License) <br>
 
@@ -49,6 +57,10 @@ There are also unit tests to help you build the classes necessary.
 ## Test
 
 Extensive testing has been done and information populates correctly into all fields.
+```
+npm run test
+```
+  ![Image of Jest test](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
 
 ```
 lib/           // classes and helper code
@@ -64,10 +76,9 @@ app.js         // Runs the application
 ```
 ## Images
 
-  ![Image of Gitbash](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
-  ![Image of Gitbash](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
-  ![Image of Gitbash](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
-  ![Image of Gitbash](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
+  ![Image of App In Console](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
+  ![Image of Pre-con HTML Build](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
+  ![Image of Final Product](https://github.com/blackedoutkeys/readmeGenerator/blob/main/images/gitbashimage.png)
 
 
 ## Utilizes
@@ -124,12 +135,8 @@ In addition to `Employee`'s properties and methods, `Intern` will also have:
 
   * getRole() // Overridden to return 'Intern'
 
-### User input
 
-The project prompts the user to build an engineering team. An engineering
-team consists of a manager, and any number of engineers and interns.
-
-### Roster output
+### Roster
 
 The project generates a `team.html` page in the `output` directory, that displays a nicely formatted team roster. Each team member should display the following in no particular order:
 
@@ -156,3 +163,4 @@ Copyright 2020 Isaac Frishman
 ## Questions
 
 [Github Profile](https://github.com/blackedoutkeys) <br>
+[Email Owner](isaacfrishman@gmail.com)

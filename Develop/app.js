@@ -12,8 +12,8 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "teamcreation.html");
 
 
-// teammates array
-const teammates = [];
+// employees array
+const employees = [];
 
 //the following three constants verify validity of the user input/entry
 const validNameEntry = (input) => {
@@ -64,10 +64,9 @@ function createTeam() {
                 addIntern();
                 break;
             case 'No other employees to enter':
-                fs.writeFileSync(outputPath, render(teammates), "utf-8");
-                console.log ('Congrats! You have successfully made your team layout!');
+                console.log('Congrats! You have successfully made your team layout!');
+                writeDoc();
                 // return replacePlaceholders(template, "team", html);
-                break
         }
     })
 }
@@ -79,17 +78,20 @@ function addManager() {
         {
             type: 'input',
             message: 'What is your name?',
-            name: 'managerName'
+            name: 'managerName',
+            validate: validNameEntry
         },
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'managerEmail'
+            name: 'managerEmail',
+            validate: validEmailEntry
         },
         {
             type: 'input',
             message: 'What is your ID number?',
-            name: 'managerID'
+            name: 'managerID',
+            validate: validID
         },
         {
             type: 'input',
@@ -101,7 +103,7 @@ function addManager() {
         console.log(userInput);
 
         const manager = new Manager(userInput.managerName, userInput.managerEmail, userInput.managerID, userInput.managerOfficeNumber);
-        teammates.push(manager)
+        employees.push(manager)
 
         createTeam();
     })
@@ -114,17 +116,22 @@ function addEngineer() {
         {
             type: 'input',
             message: 'What is your name?',
-            name: 'engineerName'
+            name: 'engineerName',
+            validate: validNameEntry
         },
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'engineerEmail'
+            name: 'engineerEmail',
+            validate: validEmailEntry
+
         },
         {
             type: 'input',
             message: 'What is your ID number?',
-            name: 'engineerID'
+            name: 'engineerID',
+            validate: validID
+
         },
         {
             type: 'input',
@@ -136,7 +143,7 @@ function addEngineer() {
         console.log(userInput);
 
         const engineer = new Engineer(userInput.engineerName, userInput.engineerEmail, userInput.engineerID, userInput.engineerGithub);
-        teammates.push(engineer)
+        employees.push(engineer)
 
         createTeam();
     })
@@ -149,17 +156,23 @@ function addIntern() {
         {
             type: 'input',
             message: 'What is your name?',
-            name: 'internName'
+            name: 'internName',
+            validate: validNameEntry
+
         },
         {
             type: 'input',
             message: 'What is your email address?',
-            name: 'internEmail'
+            name: 'internEmail',
+            validate: validEmailEntry
+
         },
         {
             type: 'input',
             message: 'What is your ID number?',
-            name: 'internID'
+            name: 'internID',
+            validate: validID
+
         },
         {
             type: 'input',
@@ -171,12 +184,17 @@ function addIntern() {
         console.log(userInput);
 
         const intern = new Intern(userInput.internName, userInput.internEmail, userInput.internID, userInput.internSchool);
-        teammates.push(intern)
+        employees.push(intern)
 
         createTeam();
     })
 }
 
-module.exports = teammates;
+
+function writeDoc() {
+    fs.writeFileSync(outputPath, render(employees), "utf-8");
+}
+
+// module.exports = employees;
 
 createTeam();
