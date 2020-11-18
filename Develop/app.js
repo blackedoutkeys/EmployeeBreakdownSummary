@@ -64,7 +64,9 @@ function createTeam() {
                 addIntern();
                 break;
             case 'No other employees to enter':
-                render(teammates);
+                fs.writeFileSync(outputPath, render(teammates), "utf-8");
+                console.log ('Congrats! You have successfully made your team layout!');
+                // return replacePlaceholders(template, "team", html);
                 break
         }
     })
